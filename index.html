@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>마음의 키링</title>
+  <title>마음을 치유하세요</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <img src="https://i.imgur.com/4AiXzf8.png" alt="부처님 실루엣" class="buddha-img"/>
-    <h1>당신에게 필요한 오늘의 한 문장</h1>
-    <div class="buttons">
-      <button onclick="showClassic()" class="classic-btn">🧘 진심으로 위로받기</button>
-      <button onclick="showLite()" class="lite-btn">😌 웃고 위로받기</button>
+    <h1 class="fade-in fade-in-delay-1">마음을 치유하세요.</h1>
+
+    <img 
+      id="buddha-img" 
+      src="images/buddha_funny.png" 
+      alt="귀여운 부처님" 
+      class="buddha-img" />
+
+    <div class="btn-row fade-in fade-in-delay-3">
+      <button onclick="showClassic()">진심 위로</button>
+      <button onclick="showLite()">웃음 위로</button>
     </div>
+
     <p id="quote">버튼을 눌러보세요.</p>
-    <button onclick="resetQuote()" class="refresh-btn">🔁 다시 뽑기</button>
+
+    <script src="script.js"></script>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
