@@ -3,31 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>마음 랜덤 명언</title>
-<!-- 웹폰트 불러오기 -->
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <!-- 스타일 -->
+  <title>디지털 사찰</title>
   <link rel="stylesheet" href="style.css" />
+ <!-- D2Coding 폰트 (Google Fonts에서 직접 불러오기) -->
+<link href="https://fonts.googleapis.com/css2?family=D2+Coding&display=swap" rel="stylesheet">
+
 </head>
 <body>
+<!-- 🏯 배경 -->
+<img src="images/pixel-temple-bg.png" alt="픽셀 사찰 배경" class="full-bg" />
+  <!-- 🧘 메인 콘텐츠 -->
+  <div class="main-wrapper">
+    <div class="center-content">
+      <img src="images/pixel-buddha.png" alt="픽셀 부처님" class="buddha-img" />
 
-  <!-- 🧘 타이틀 -->
-  <h1 style="text-align: center; margin-top: 50px;">마음을 치유하세요.</h1>
-
-  <!-- 🪷 부처님 이미지 (둥둥 애니메이션용 클래스 추가) -->
-  <div style="text-align: center; margin-top: 40px;">
-    <img src="images/buddha_funny.png" alt="귀여운 부처님" class="floating-buddha" width="200" />
+      <div class="button-group">
+        <button class="pixel-button" onclick="showQuote('classic')">진심 위로</button>
+        <button class="pixel-button" onclick="showQuote('lite')">웃음 위로</button>
+      </div>
   </div>
+</div>
 
-  <!-- 🧘 버튼 2개 (진심 / 웃음 위로) -->
-  <div class="button-group" style="text-align: center; margin-top: 30px;">
-    <button class="btn-classic" onclick="showQuote('classic')">진심 위로</button>
-    <button class="btn-lite" onclick="showQuote('lite')">웃음 위로</button>
+<!-- 진지 위로 화면 (초기엔 숨김) -->
+<div id="classic-screen" style="display: none;">
+  <img src="images/classic-bg.png" alt="진심 배경" class="full-bg" />
+  <div class="main-wrapper">
+    <img src="images/classic-buddha.png" alt="진지 부처님" class="classic-buddha" />
+    <div id="quote-area" class="quote-text"></div>
   </div>
+</div>
 
-  <!-- 📜 명언 영역 -->
-  <div id="quote-area" class="quote-text" style="margin-top: 40px;"></div>
-  <!-- 🔮 스크립트 -->
+  <!-- 🧘 중앙 콘텐츠 -->
+  <div class="main-wrapper">
+    <div class="center-content">
+      <img src="images/pixel-buddha.png" alt="픽셀 부처님" class="buddha-img" />
+      <!-- HTML -->
+<div class="button-group">
+  <button class="pixel-button">진심위로</button>
+  <button class="pixel-button">웃음위로</button>
+</div>
+
+      <div id="quote-area" class="quote-text"></div>
+    </div>
+  </div>
   <script src="script.js"></script>
+
+
 </body>
 </html>
