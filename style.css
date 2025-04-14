@@ -63,11 +63,16 @@ body {
   
   /* 애니메이션 정의 */
   
-  @keyframes float {
-    0%   { transform: translateY(0px); }
-    50%  { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+  .floating-buddha {
+    animation: float 3s ease-in-out infinite;
   }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+  
   
   @keyframes fadeIn {
     from {
@@ -116,5 +121,147 @@ body {
     padding-left: 20px;
     max-height: 200px;
     overflow-y: auto;
+  }
+  /* 🌿 감성 컬러 팔레트 정의 */
+:root {
+    --soft-sand: #E6DCC5;
+    --muted-clay: #C8B58A;
+    --mindful-gray: #D6D6D6;
+    --matcha-green: #BFC6A5;
+    --lotus-white: #F6F5F1;
+    --compassion-pink: #E9D8D1;
+    --zen-blue-gray: #B6C2C9;
+    --temple-brass: #D4B483;
+    --text-dark: #444444;
+    --white: #ffffff;
+  }
+  
+  /* 🌸 전체 배경과 텍스트 */
+  body {
+    background-color: var(--lotus-white);
+    color: var(--text-dark);
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* 📦 공통 버튼 스타일 */
+  button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  /* 🧘 진심 위로 버튼 */
+  .btn-classic {
+    background-color: var(--temple-brass);
+    color: var(--white);
+  }
+  
+  .btn-classic:hover {
+    background-color: var(--soft-sand);
+  }
+  
+  /* 😂 웃음 위로 버튼 */
+  .btn-lite {
+    background-color: var(--matcha-green);
+    color: var(--white);
+  }
+  
+  .btn-lite:hover {
+    background-color: var(--soft-sand);
+  }
+  
+  /* 🔁 다시 뽑기 버튼 */
+  .btn-regen {
+    background-color: var(--zen-blue-gray);
+    color: var(--white);
+  }
+  
+  .btn-regen:hover {
+    background-color: var(--lotus-white);
+  }
+  
+  /* 🔗 링크형 텍스트 버튼 */
+  .text-button {
+    background: none;
+    color: var(--compassion-pink);
+    text-decoration: underline;
+    font-size: 15px;
+    padding: 0;
+  }
+  
+  /* 🧾 명언 텍스트 스타일 */
+  .quote-text {
+    font-size: 20px;
+    color: var(--temple-brass);
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  /* 📜 텍스트 강조 */
+  .emphasis {
+    color: var(--zen-blue-gray);
+    font-weight: bold;
+  }
+  
+  /* 📦 카드 스타일 */
+  .card {
+    background-color: var(--lotus-white);
+    border: 1px solid var(--soft-sand);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  /* 전체 기본 손글씨 폰트 */
+body {
+    font-family: 'Gowun Dodum', sans-serif;
+  }
+  
+  /* 명언 텍스트용 강조 폰트 */
+  .quote-text {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 1.3rem;
+    color: #333333;
+    text-align: center;
+    line-height: 1.8;
+    max-width: 80%;
+    margin: 30px auto;
+    white-space: normal; /* ✅ 타이핑 텍스트에서도 줄바꿈 활성화 */
+    word-break: keep-all;
+  }
+  #quote-area {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.8;
+    max-width: 90%; /* ✅ 화면 꽉 채우지 않게 */
+    margin: 30px auto;
+    padding: 0 20px;
+    white-space: normal; /* ✅ 줄바꿈 가능하게 */
+    word-break: keep-all; /* ✅ 한글 단어 단위로 끊기 */
+    overflow-wrap: break-word; /* ✅ 강제 줄바꿈 */
+  }
+  
+  /* 화면 전체 가운데 정렬 */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f5f1; /* 원하는 배경색 */
+  }
+  
+  /* 내용 박스 */
+  .content {
+    text-align: center;
+    max-width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
   }
   

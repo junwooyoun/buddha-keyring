@@ -2,28 +2,32 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>마음을 치유하세요</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마음 랜덤 명언</title>
+<!-- 웹폰트 불러오기 -->
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <!-- 스타일 -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1 class="fade-in fade-in-delay-1">마음을 치유하세요.</h1>
 
-    <img 
-      id="buddha-img" 
-      src="images/buddha_funny.png" 
-      alt="귀여운 부처님" 
-      class="buddha-img" />
+  <!-- 🧘 타이틀 -->
+  <h1 style="text-align: center; margin-top: 50px;">마음을 치유하세요.</h1>
 
-    <div class="btn-row fade-in fade-in-delay-3">
-      <button onclick="showClassic()">진심 위로</button>
-      <button onclick="showLite()">웃음 위로</button>
-    </div>
-
-    <p id="quote">버튼을 눌러보세요.</p>
-
-    <script src="script.js"></script>
+  <!-- 🪷 부처님 이미지 (둥둥 애니메이션용 클래스 추가) -->
+  <div style="text-align: center; margin-top: 40px;">
+    <img src="images/buddha_funny.png" alt="귀여운 부처님" class="floating-buddha" width="200" />
   </div>
+
+  <!-- 🧘 버튼 2개 (진심 / 웃음 위로) -->
+  <div class="button-group" style="text-align: center; margin-top: 30px;">
+    <button class="btn-classic" onclick="showQuote('classic')">진심 위로</button>
+    <button class="btn-lite" onclick="showQuote('lite')">웃음 위로</button>
+  </div>
+
+  <!-- 📜 명언 영역 -->
+  <div id="quote-area" class="quote-text" style="margin-top: 40px;"></div>
+  <!-- 🔮 스크립트 -->
+  <script src="script.js"></script>
 </body>
 </html>
