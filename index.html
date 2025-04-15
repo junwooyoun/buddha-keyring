@@ -2,52 +2,74 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>디지털 사찰</title>
   <link rel="stylesheet" href="style.css" />
- <!-- D2Coding 폰트 (Google Fonts에서 직접 불러오기) -->
-<link href="https://fonts.googleapis.com/css2?family=D2+Coding&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=D2Coding&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- 🏯 배경 -->
-<img src="images/pixel-temple-bg.png" alt="픽셀 사찰 배경" class="full-bg" />
+  <!-- 🌄 배경 -->
+  <img id="main-bg" src="images/pixel-temple-bg.png" alt="배경" class="full-bg"/>
+
   <!-- 🧘 메인 콘텐츠 -->
   <div class="main-wrapper">
-    <div class="center-content">
-      <img src="images/pixel-buddha.png" alt="픽셀 부처님" class="buddha-img" />
-
+    <div class="center-content" id="main-screen">
+      <img src="images/pixel-buddha.png" alt="부처님" class="buddha-img" id="main-buddha" />
       <div class="button-group">
-        <button class="pixel-button" onclick="showQuote('classic')">진심 위로</button>
-        <button class="pixel-button" onclick="showQuote('lite')">웃음 위로</button>
+        <button class="pixel-button" onclick="enterClassicMode()">
+          <span class="emoji">🧘‍♂️</span> 진심 위로
+        </button>
+      
+        <button class="pixel-button" onclick="enterLiteMode()">
+          <span class="emoji">😂</span> 웃음 위로
+        </button>
       </div>
-  </div>
-</div>
-
-<!-- 진지 위로 화면 (초기엔 숨김) -->
-<div id="classic-screen" style="display: none;">
-  <img src="images/classic-bg.png" alt="진심 배경" class="full-bg" />
-  <div class="main-wrapper">
-    <img src="images/classic-buddha.png" alt="진지 부처님" class="classic-buddha" />
-    <div id="quote-area" class="quote-text"></div>
-  </div>
-</div>
-
-  <!-- 🧘 중앙 콘텐츠 -->
-  <div class="main-wrapper">
-    <div class="center-content">
-      <img src="images/pixel-buddha.png" alt="픽셀 부처님" class="buddha-img" />
-      <!-- HTML -->
-<div class="button-group">
-  <button class="pixel-button">진심위로</button>
-  <button class="pixel-button">웃음위로</button>
-</div>
-
+      
       <div id="quote-area" class="quote-text"></div>
     </div>
   </div>
+
+<!-- 🧘 진심위로 모드 화면 -->
+<div id="classic-screen" class="main-wrapper" style="display: none;">
+  <div class="center-content">
+  
+    <img src="images/classic-buddha.png" alt="클래식 부처님" class="classic-buddha" />
+  <div class="wooden-box">
+    <div id="quote-area-classic" class="quote-text"></div>
+  </div>
+  <div class="button-group-horizontal">
+    <button class="pixel-button" onclick="showAnotherClassicQuote()">
+      <span class="emoji">🔁</span> 
+    </button>
+  
+    <button class="pixel-button" onclick="backToMain()">
+      <span class="emoji">🔙</span> 
+    </button>
+  </div>
+ </div>
+</div>
+
+  
+      <!-- 😄 웃음 위로 모드 화면 -->
+      <div id="lite-screen" class="main-wrapper" style="display: none;">
+        <div class="center-content">
+          <img src="images/pixel-buddha-laugh.png" alt=" 부처님" class="classic-buddha" />
+          
+          <div class="wooden-box">
+            <div id="quote-area-lite" class="quote-text"></div>
+          </div>
+      
+          <div class="button-group-horizontal">
+            <button class="pixel-button" onclick="showAnotherLiteQuote()">
+              <span class="emoji">😂</span> 다른 문구 보기
+            </button>
+            <button class="pixel-button" onclick="backToMain()">
+              <span class="emoji">🔙</span> 돌아가기
+            </button>
+  </div>
+  
+</div>
   <script src="script.js"></script>
-
-
 </body>
 </html>

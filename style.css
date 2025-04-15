@@ -1,60 +1,80 @@
-/* 전체 화면에 배경 이미지 */
+/* 🌄 전체 배경 */
 .full-bg {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
-  object-position: center;
   z-index: -1;
+  transition: opacity 1s ease;
 }
 
+/* 💡 메인 구조 */
+body, html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
 
-/* 메인 콘텐츠 wrapper */
 .main-wrapper {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
 .center-content {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  min-height: 400px; /* ✅ 버튼이 위로 못 가게 공간 확보 */
 }
 
-/* 부처님 이미지 */
+/* 🙏 부처님 */
 .buddha-img {
-  width: 160px;
-  display: block;
+  width: 200px;
   min-height: 160px;
-  position: relative;     /* ✅ 위치 기준 생성 */
-  z-index: 1;              /* ✅ 부처 존재감 부여 */
+  display: block;
   opacity: 0;
   animation: zoomFade 2s ease-out forwards, float 3s ease-in-out infinite;
   animation-delay: 0.5s, 2.5s;
   margin-bottom: 20px;
 }
 
-
-/* 버튼 그룹 - 부처님과의 거리, 버튼 사이 간격 넓힘 */
-.button-group {
-  display: flex;
-  flex-direction: column; /* ✅ 세로 정렬 */
-  align-items: center;     /* ✅ 가운데 정렬 */
-  gap: 20px;               /* 버튼 사이 간격 */
-  margin-top: 30px;        /* 부처님과의 거리 */
+/* 👘 진심/웃음 부처 공용 */
+.classic-buddha {
+  width: 230px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  animation: zoomFade 2s ease-out forwards, float 3s ease-in-out infinite;
+  animation-delay: 0.5s, 2.5s;
 }
 
+/* 🔘 버튼 */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
 
-/* 픽셀 버튼 스타일 업그레이드 */
+.button-group-horizontal {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
 .pixel-button {
   background-color: #f4e17e;
   color: #222;
@@ -74,9 +94,7 @@
   box-shadow: 2px 2px 0px #555;
 }
 
-
-
-/* 문구 */
+/* 📜 명언 텍스트 */
 .quote-text {
   font-size: 1.1rem;
   color: #333;
@@ -84,26 +102,58 @@
   max-width: 80%;
   margin: 0 auto;
   word-break: keep-all;
-  white-space: pre-line;
+  white-space: normal;
 }
 
-/* 부처님 둥둥 애니메이션 */
+/* 💬 명언 위치 조정 */
+.wooden-box .quote-text {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 100%;
+  color: #3b2b16;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.4);
+  font-family: 'D2Coding', monospace;
+  transform: translateY(-2px);
+  letter-spacing: -0.09em !important; /* ← 요거 추가하면 글자들 좀 가까워짐 */
+  }
+  
+
+
+/* 🌲 기본 나무 느낌 박스 */
+.wooden-box {
+  background-color: #e2c28b;
+  border: 4px solid #7c5a36;
+  padding: 10px 5px;
+  border-radius: 0;
+  width: min(600px, 90%);
+  margin: 0 auto;
+  max-width: 70%;
+  box-shadow: inset 0 0 0 4px #d1a866,
+              0 0 0 2px #5a3e2b,
+              4px 4px 0 #3e2a1f;
+  background-image: linear-gradient(
+    90deg,
+    rgba(124, 90, 54, 0.2) 1px,
+    transparent 1px
+  );
+  background-size: 16px 100%;
+  image-rendering: pixelated;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 15px;
+}
+
+/* ✨ 애니메이션 */
 @keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-10px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 @keyframes zoomFade {
   0% {
     opacity: 0;
@@ -114,39 +164,50 @@
     transform: scale(1) translateY(0);
   }
 }
-@keyframes pixel-press {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(2px, 2px); }
-  100% { transform: translate(0, 0); }
-}
-/* 새로운 부처님 */
-.classic-buddha {
-  width: 200px;
-  margin-top: 30px;
-  opacity: 0;
-  animation: fadeIn 1s ease-out forwards, float 3s ease-in-out infinite;
-  animation-delay: 0.5s, 1s;
-}
-
-/* 부처님 둥둥 */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 배경 꽉 차게 */
-.full-bg {
+/* 🎯 각 화면 (classic / lite) */
+#classic-screen,
+#lite-screen {
   position: fixed;
   top: 0;
   left: 0;
+  display: none;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
-  z-index: -1;
+  z-index: 20;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 😎 이모지 스타일 */
+.emoji {
+  font-family: system-ui, sans-serif;
+  margin-right: 6px;
+  font-size: 2.3em;
+  vertical-align: middle;
+}
+
+/* 🎨 도트 스타일 텍스트 */
+.pixel-style .quote-text {
+  font-size: 12px;
+  color: #1e0f00;
+  text-shadow: 1px 1px 0 #f4e1c1;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.pixel-style {
+  border: 4px solid #000;
+  box-shadow:
+    0 0 0 4px #fffbe6,
+    0 0 0 8px #7c5a36,
+    8px 8px 0 #444;
+  font-family: 'Press Start 2P', monospace;
 }
