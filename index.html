@@ -5,27 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>디지털 사찰</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=D2Coding&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- 🌄 배경 -->
   <img id="main-bg" src="images/pixel-temple-bg.png" alt="배경" class="full-bg"/>
 
-  <!-- 🧘 메인 콘텐츠 -->
+  <!-- 🧘 메인 콘텐츠 --> 
   <div class="main-wrapper">
     <div class="center-content" id="main-screen">
       <img src="images/pixel-buddha.png" alt="부처님" class="buddha-img" id="main-buddha" />
       <div class="button-group">
-        <button class="pixel-button" onclick="enterClassicMode()">
-          <span class="emoji">🧘‍♂️</span> 진심 위로
-        </button>
-      
-        <button class="pixel-button" onclick="enterLiteMode()">
-          <span class="emoji">😂</span> 웃음 위로
+        <div class="moktak-wrapper">
+          <button class="moktak-button" onclick="enterClassicMode()">
+            <img src="images/moktak.png" alt="목탁" class="moktak-img" />
+          </button>
+          <div class="balloon-container">
+            <img src="images/balloon.png" alt="말풍선" class="balloon-img" />
+            <span class="balloon-text">디지털<br>가르침</span>
+          </div>
+        </div>
+      </div>
+      <div id="ninja-cat" class="cat-button-container">
+        <button class="cat-button">
+          <img src="images/cat.png" alt="고양이">
         </button>
       </div>
-      
+      </div>
       <div id="quote-area" class="quote-text"></div>
     </div>
   </div>
@@ -40,14 +47,15 @@
   </div>
   <div class="button-group-horizontal">
     <button class="pixel-button" onclick="showAnotherClassicQuote()">
-      <span class="emoji">🔁</span> 
+      <span class="emoji"> 디지털 윤회</span> 
     </button>
   
     <button class="pixel-button" onclick="backToMain()">
-      <span class="emoji">🔙</span> 
+      <span class="emoji">뒤로가기</span> 
     </button>
   </div>
  </div>
+
 </div>
 
   
@@ -62,14 +70,15 @@
       
           <div class="button-group-horizontal">
             <button class="pixel-button" onclick="showAnotherLiteQuote()">
-              <span class="emoji">😂</span> 다른 문구 보기
+              <span class="emoji">디지털 윤회</span> 
             </button>
             <button class="pixel-button" onclick="backToMain()">
-              <span class="emoji">🔙</span> 돌아가기
+              <span class="emoji">뒤로가기</span> 
             </button>
   </div>
   
 </div>
   <script src="script.js"></script>
+  <div id="cat-popup" class="custom-popup">😸 업보가 정화됩니다...</div>
 </body>
 </html>
