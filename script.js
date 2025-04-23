@@ -1,4 +1,18 @@
 // script.js
+// ✅ 접근 제한용 쿼리 검사
+//(function checkAccessToken() {
+ // const urlParams = new URLSearchParams(window.location.search);
+ // const access = urlParams.get('access');
+ //if (access !== 'temple2024') {
+ //  document.body.innerHTML = "<div style='color:white; font-family:sans-serif; text-align:center; margin-top:50vh;'>🙏 허용되지 않은 접근입니다</div>";
+  //  throw new Error("접근 거부됨: 올바른 토큰 없음");
+ // }
+//})();
+function vibratePhone() {
+  if (navigator.vibrate) {
+    navigator.vibrate(300); // 300ms 진동
+  }
+}
 
 let previousQuote = "";
 let recentQuotes = []; // 🔥 추가: 최근 본 문구 기억
@@ -49,6 +63,7 @@ function typeWriterEffect(element, text, i = 0) {
 
 // ✅ 진심 위로 모드 전환
 function enterClassicMode() {
+  vibratePhone(); // 진동 추가 ✅
   const mainScreen = document.getElementById("main-screen");
   if (mainScreen) mainScreen.style.display = "none";
 
