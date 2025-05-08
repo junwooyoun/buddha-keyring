@@ -202,4 +202,18 @@ cat.addEventListener('click', () => {
   setTimeout(() => {
     popup.style.display = "none";
   }, 2000);
+  const moktak = document.querySelector('.moktak-wrapper');
+const cat = document.getElementById('ninja-cat');
+
+// 모바일 및 PC에서 목탁 터치/클릭 시 고양이 클릭 무시
+function disableCatClick() {
+  cat.style.pointerEvents = 'none';
+  setTimeout(() => {
+    cat.style.pointerEvents = 'auto';
+  }, 1500); // 1.5초 후 다시 클릭 가능
+}
+
+moktak.addEventListener('touchstart', disableCatClick); // 모바일 대응
+moktak.addEventListener('mousedown', disableCatClick);  // 데스크탑 대응
+
 });
