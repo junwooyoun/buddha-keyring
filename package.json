@@ -1,0 +1,23 @@
+{
+  "name": "buddha-keyring",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "scripts": {
+  "deploy": "gh-pages -d dist"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junwooyoun/buddha-keyring.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junwooyoun/buddha-keyring/issues"
+  },
+  "homepage": "https://github.com/junwooyoun/buddha-keyring#readme",
+  "description": ""
+}
