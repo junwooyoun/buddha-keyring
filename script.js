@@ -159,61 +159,43 @@ function backToMain() {
   if (quoteArea) quoteArea.innerText = "";
 }
 
-// ✅ 고양이 버튼 동작 (숨김 + 이동 효과)
-const cat = document.getElementById('ninja-cat');
-let posX = 100;
-let posY = 100;
-let speedX = 1.2;
-let speedY = 0.9;
+let audioPlaying = false;
+let audio = new Audio('sounds/temple-sound.mp3');
 
-function moveCat() {
-  const screenW = window.innerWidth;
-  const screenH = window.innerHeight;
-  const catW = cat.offsetWidth;
-  const catH = cat.offsetHeight;
+function playSound() {
+  const soundBtn = document.getElementById('sound-btn');
 
-  posX += speedX;
-  posY += speedY;
-
-  if (posX <= 0 || posX + catW >= screenW) speedX *= -1;
-  if (posY <= 0 || posY + catH >= screenH) speedY *= -1;
-
-  cat.style.left = posX + 'px';
-  cat.style.top = posY + 'px';
-
-  if (Math.random() < 0.01) {
-    cat.style.opacity = 0;
-    setTimeout(() => {
-      cat.style.opacity = 1;
-    }, 1500);
+  if (!audioPlaying) {
+    audio.play();
+    audio.loop = true;
+    soundBtn.src = 'images/moktak-off.png';
+    audioPlaying = true;
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    soundBtn.src = 'images/moktak.png';
+    audioPlaying = false;
   }
+}
+// 고양이 순간이동
+const ninjaCat = document.getElementById('ninja-cat');
 
-  requestAnimationFrame(moveCat);
+function teleportNinjaCat() {
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  const randomX = Math.random() * (screenWidth - 100); // 여백 고려
+  const randomY = Math.random() * (screenHeight - 100);
+
+  ninjaCat.style.left = `${randomX}px`;
+  ninjaCat.style.top = `${randomY}px`;
+  ninjaCat.style.opacity = 1;
+
+  // 사라지는 시간 수정  숫자 수정하면됨.
+  setTimeout(() => {
+    ninjaCat.style.opacity = 0;
+  }, 3000);
 }
 
-moveCat();
-
-cat.addEventListener('click', () => {
-  enterLiteMode();
-});
-cat.addEventListener('click', () => {
-  const popup = document.getElementById("cat-popup");
-  popup.style.display = "block";
-  setTimeout(() => {
-    popup.style.display = "none";
-  }, 2000);
-  const moktak = document.querySelector('.moktak-wrapper');
-const cat = document.getElementById('ninja-cat');
-
-// 모바일 및 PC에서 목탁 터치/클릭 시 고양이 클릭 무시
-function disableCatClick() {
-  cat.style.pointerEvents = 'none';
-  setTimeout(() => {
-    cat.style.pointerEvents = 'auto';
-  }, 1500); // 1.5초 후 다시 클릭 가능
-}
-
-moktak.addEventListener('touchstart', disableCatClick); // 모바일 대응
-moktak.addEventListener('mousedown', disableCatClick);  // 데스크탑 대응
-
-});
+// 순간이동시간 설정 숫자 수정하면됨
+setInterval(teleportNinjaCat, 5000);

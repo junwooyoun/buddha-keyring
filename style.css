@@ -47,6 +47,7 @@ body, html {
   animation: zoomFade 2s ease-out forwards, float 3s ease-in-out infinite;
   animation-delay: 0.5s, 2.5s;
   margin-bottom: 20px;
+  margin-left: 27px; /* 오른쪽으로 밀고 싶을 때 */
 }
 
 /* 👘 진심/웃음 부처 공용 */
@@ -232,6 +233,7 @@ body, html {
   outline: none;
   display: inline-block;
   transition: transform 0.2s ease;
+  margin-left: 72px; /* 오른쪽으로 밀고 싶을 때 */
 }
 
 .moktak-button img {
@@ -254,7 +256,7 @@ body, html {
   display: flex;
   flex-direction: row; /* ❗ 가로 정렬 핵심 */
   align-items: center; /* ❗ 수직 가운데 정렬 */
-  gap: -10px; /* ❗ 둘 사이 여백 (원하는 만큼 조절) */
+  gap: 10px; /* ❗ 둘 사이 여백 (원하는 만큼 조절) */
 }
 
 
@@ -302,12 +304,17 @@ body, html {
 }
 
  /*고양이 웃음 위로 버튼 */
- .cat-button-container {
+.cat-button-container {
   position: fixed;
-  top: 100px;       /* 원하는 만큼 조정 가능 (예: 70% = 아래쪽) */
-  left: 100px;      /* 좌우 위치 조절 (예: 20% = 왼쪽) */
-  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0; /* 기본은 안 보이게 */
+  pointer-events: none; /* 클릭 안 되게 */
+  z-index: 999;
 }
+
 
 .cat-button {
   background: none;
@@ -349,4 +356,7 @@ body, html {
   z-index: 9999;
   box-shadow: 0 0 12px rgba(0,0,0,0.2);
   display: none;
+}
+#sound-btn {
+  animation: float 3s ease-in-out infinite;
 }
