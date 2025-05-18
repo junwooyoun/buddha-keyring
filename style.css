@@ -311,7 +311,7 @@ body, html {
   transform: translate(-50%, -50%);
   transition: opacity 0.5s ease, transform 0.5s ease;
   opacity: 0; /* 기본은 안 보이게 */
-  pointer-events: none; /* 클릭 안 되게 */
+  pointer-events: auto; /* 클릭 안 되게 */
   z-index: 999;
 }
 

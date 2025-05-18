@@ -179,7 +179,9 @@ function playSound() {
 }
 // 고양이 순간이동
 const ninjaCat = document.getElementById('ninja-cat');
-
+ninjaCat.addEventListener('click', () => {
+  enterLiteMode(); // 이 함수가 웃음 위로로 가는 거 맞지?
+});
 function teleportNinjaCat() {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
