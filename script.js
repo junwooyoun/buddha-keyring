@@ -50,12 +50,21 @@ fetch('data/quotes.json')
 
 
 // ✅ 타이핑 효과
-function typeWriterEffect(element, text, i = 0) {
+function typeWriterEffect(element, text, i = 0, buttonId = null) {
+  if (i === 0 && buttonId) {
+    document.getElementById(buttonId).disabled = true;
+  }
+
   if (i < text.length) {
     element.textContent += text.charAt(i);
-    setTimeout(() => typeWriterEffect(element, text, i + 1), 50);
+    setTimeout(() => typeWriterEffect(element, text, i + 1, buttonId), 50);
+  } else {
+    if (buttonId) {
+      document.getElementById(buttonId).disabled = false;
+    }
   }
 }
+
 
 // ✅ 진심 위로 모드 전환
 function enterClassicMode() {
@@ -94,8 +103,9 @@ function showAnotherClassicQuote() {
   const quoteArea = document.getElementById("quote-area-classic");
   const quote = getUniqueQuote(quotes.classicQuotes);
   quoteArea.innerText = "";
-  typeWriterEffect(quoteArea, quote);
+  typeWriterEffect(quoteArea, quote, 0, "classic-more-btn");
 }
+
 
 function enterLiteMode() {
   const mainScreen = document.getElementById("main-screen");
@@ -133,8 +143,9 @@ function showAnotherLiteQuote() {
   const quoteArea = document.getElementById("quote-area-lite");
   const quote = getUniqueQuote(quotes.liteQuotes);
   quoteArea.textContent = "";
-  typeWriterEffect(quoteArea, quote);
+  typeWriterEffect(quoteArea, quote, 0, "lite-more-btn");
 }
+
 
 // ✅ 돌아가기 버튼 기능 (공통)
 function backToMain() {
