@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ref = rawRef.toLowerCase();
   const ua = navigator.userAgent;
 
-  const isDirect = ref === "";
+    const isDirect = ref === "";
   const badReferrers = ["kakao", "naver", "instagram", "facebook", "t.co", "twitter"];
   const isSuspiciousSource = isDirect || badReferrers.some(b => ref.includes(b));
   const isNotMobile = !/Mobi|Android|iPhone|iPad/i.test(ua);
@@ -257,3 +257,22 @@ function teleportNinjaCat() {
 
 setInterval(teleportNinjaCat, 5000);
 
+function openGiwaBulsa() {
+  window.location.href = "giwa.html";
+}
+
+function openGiwaPage() {
+  const mainScreen = document.getElementById("main-screen");
+  const bg = document.getElementById("main-bg");
+
+  // 메인 콘텐츠 숨기기
+  if (mainScreen) mainScreen.style.display = "none";
+
+  // 배경 페이드 아웃
+  bg.style.opacity = 0;
+
+  // 0.5초 후 기와 페이지로 이동
+  setTimeout(() => {
+    window.location.href = "giwa.html"; 
+  }, 300);
+}
