@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const ua = navigator.userAgent;
 
     const isDirect = ref === "";
-///  const badReferrers = ["kakao", "naver", "instagram", "facebook", "t.co", "twitter"];
- /// const isSuspiciousSource = isDirect || badReferrers.some(b => ref.includes(b));
- /// const isNotMobile = !/Mobi|Android|iPhone|iPad/i.test(ua);
+  const badReferrers = ["kakao", "naver", "instagram", "facebook", "t.co", "twitter"];
+  const isSuspiciousSource = isDirect || badReferrers.some(b => ref.includes(b));
+ const isNotMobile = !/Mobi|Android|iPhone|iPad/i.test(ua);
 
   if (isSuspiciousSource || isNotMobile) {
     window.location.replace("no-access.html");
